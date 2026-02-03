@@ -155,22 +155,40 @@ button {
 
 <body>
 
-<div class="stars"></div>
-<div class="effects" id="effects"></div>
-<div class="moon"></div>
-<div class="mountains"></div>
-
-<audio id="music">
-  <source src="Ishq Wala Love Student Of The Year 128 Kbps.mp3" type="audio/mpeg">
+<audio id="bgm" loop>
+  <source src="ishq_wala_love.mp3" type="audio/mpeg">
 </audio>
 
-<button id="musicBtn">Play music</button>
-
-<div class="container">
-  <div class="card" id="content"></div>
-</div>
+<button id="musicBtn" onclick="toggleMusic()" style="
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+">
+  🔊 Music On
+</button>
 
 <script>
+  let playing = false;
+  const bgm = document.getElementById("bgm");
+  const btn = document.getElementById("musicBtn");
+
+  function toggleMusic() {
+    if (!playing) {
+      bgm.play();
+      btn.innerText = "🔇 Music Off";
+    } else {
+      bgm.pause();
+      btn.innerText = "🔊 Music On";
+    }
+    playing = !playing;
+  }
+</script>
 const phoneNumber = "91XXXXXXXXXX"; // replace with your number
 const content = document.getElementById("content");
 let step = 0;
@@ -244,6 +262,21 @@ function share() {
     "_blank"
   );
 }
+      <a href="https://wa.me/?text=I%20said%20yes%20🥰"
+   target="_blank"
+   style="
+     display: inline-block;
+     margin-top: 20px;
+     padding: 14px 22px;
+     border-radius: 30px;
+     background: linear-gradient(135deg, #8a2be2, #b983ff);
+     color: white;
+     text-decoration: none;
+     font-size: 18px;
+   ">
+  Share this message 💌
+      </a>
+      
 
 document.getElementById("musicBtn").onclick =
   () => document.getElementById("music").play();
